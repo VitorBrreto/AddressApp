@@ -30,28 +30,26 @@ public class PersonListFileHandler implements FileHandler<Person> {
     @Override
     public List<Person> getDataFromFile(File file) {
         try {
-            Unmarshaller unmarshaller = getUnmarsheller();
-
-            PersonListWrapper wrapper = (PersonListWrapper) unmarshaller.unmarshal(file);
-
-            setFilePath(file);
-
-            return wrapper.getPersons();
+            return tryGetDataFromFile(file);
         } catch (JAXBException e) {
         }
         return null;
     }
 
+    private List<Person> tryGetDataFromFile(File file) throws JAXBException {
+        Unmarshaller unmarshaller = getUnmarsheller();
+        
+        PersonListWrapper wrapper = (PersonListWrapper) unmarshaller.unmarshal(file);
+        
+        setFilePath(file);
+        
+        return wrapper.getPersons();
+    }
+
     @Override
     public void saveDataToFile(File file, List<Person> personData) {
         try {
-            PersonListWrapper wrapper = new PersonListWrapper();
-            Marshaller marshaller = getMarshaller();
-
-            wrapper.setPersons(personData);
-            marshaller.marshal(wrapper, file);
-
-            setFilePath(file);
+            trySaveDataToFile(personData, file);
         } catch (JAXBException e) {
             String title = "Erro";
             String headerText = "Não foi possível salvar os dados do arquivo:\n" + file.getPath();
@@ -59,23 +57,37 @@ public class PersonListFileHandler implements FileHandler<Person> {
         }
     }
 
+    private void trySaveDataToFile(List<Person> personData, File file) throws JAXBException {
+        PersonListWrapper wrapper = new PersonListWrapper();
+        Marshaller marshaller = getMarshaller();
+        
+        wrapper.setPersons(personData);
+        marshaller.marshal(wrapper, file);
+        
+        setFilePath(file);
+    }
+
     @Override
     public void loadDataFromFile(File file, List<Person> personData) {
         try {
-            Unmarshaller um = getUnmarsheller();
-
-            PersonListWrapper wrapper = (PersonListWrapper) um.unmarshal(file);
-
-            personData.clear();
-            personData.addAll(wrapper.getPersons());
-
-            setFilePath(file);
+            tryLoadDataFromFile(file, personData);
         } catch (JAXBException e) {
             String title = "Erro";
             String headerText = "Não foi possível carregar os dados do arquivo:\n" + file.getPath();
             AlertFactory.createAlert(AlertType.ERROR, title, headerText, null);
 
         }
+    }
+
+    private void tryLoadDataFromFile(File file, List<Person> personData) throws JAXBException {
+        Unmarshaller um = getUnmarsheller();
+        
+        PersonListWrapper wrapper = (PersonListWrapper) um.unmarshal(file);
+        
+        personData.clear();
+        personData.addAll(wrapper.getPersons());
+        
+        setFilePath(file);
     }
 
     @Override
