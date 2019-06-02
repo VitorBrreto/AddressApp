@@ -1,4 +1,4 @@
-package ch.makery.address.util;
+package ch.makery.address.util.xml;
 
 import java.io.File;
 import java.util.logging.Level;
