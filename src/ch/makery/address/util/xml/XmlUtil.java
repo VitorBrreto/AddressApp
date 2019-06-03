@@ -12,25 +12,46 @@ import javax.xml.bind.PropertyException;
 /**
  *
  * @author Paulo Vitor
+ * @param <T>
  */
 public class XmlUtil <T> implements XmlHandler<T> {
     
     private final JAXBContext context;
     
-    private XmlUtil (Class<? extends T> theClass) throws JAXBException {
-        context = JAXBContext.newInstance(theClass);
+    private XmlUtil (Class<T> classToBeBound) throws UnboundableClassException {
+        try {
+            context = JAXBContext.newInstance(classToBeBound);
+        } catch (JAXBException ex) {
+            throw new UnboundableClassException();
+        }
     }
     
-    public static XmlUtil getInstance(Class contextClass) throws JAXBException {
-        return new XmlUtil<>(contextClass);
+    public static XmlUtil getInstance(Class classToBeBound) throws UnboundableClassException {
+        return new XmlUtil<>(classToBeBound);
     }
     
-    private Unmarshaller getUnmarsheller() throws JAXBException {
+    private Unmarshaller getUnmarsheller() throws UnmarshallerCreationException {
+        try {
+            return tryGetUnmarshaller();
+        } catch (JAXBException ex) {
+            throw new UnmarshallerCreationException();
+        }
+    }
+
+    private Unmarshaller tryGetUnmarshaller() throws JAXBException {
         Unmarshaller unmarshaller = context.createUnmarshaller();
         return unmarshaller;
     }
 
-    private Marshaller getMarshaller() throws JAXBException, PropertyException {
+    private Marshaller getMarshaller() throws MarshallerCreationException {
+        try {
+            return tryGetMarshaller();
+        } catch (JAXBException ex) {
+            throw new MarshallerCreationException(ex.getMessage());
+        }
+    }
+
+    private Marshaller tryGetMarshaller() throws JAXBException, PropertyException {
         Marshaller marshaller = context.createMarshaller();
         marshaller.setProperty(Marshaller.JAXB_FORMATTED_OUTPUT, true);
         return marshaller;
@@ -40,8 +61,8 @@ public class XmlUtil <T> implements XmlHandler<T> {
     public void marshall(T wrapper, File outputFile) {
         try {
             Marshaller marshaller = getMarshaller();
-            marshaller.marshal(wrapper, outputFile);
-        } catch (JAXBException ex) {
+            marshaller.marshal(wrapper, outputFile);  
+        } catch (MarshallerCreationException | JAXBException ex) {
             Logger.getLogger(XmlUtil.class.getName()).log(Level.SEVERE, null, ex);
         }
         
@@ -53,11 +74,11 @@ public class XmlUtil <T> implements XmlHandler<T> {
             Unmarshaller unmarshaller = getUnmarsheller();
             T wrapper = (T) unmarshaller.unmarshal(inputFile);
             return wrapper;
+        } catch (UnmarshallerCreationException ex) {
+            Logger.getLogger(XmlUtil.class.getName()).log(Level.SEVERE, null, ex);
         } catch (JAXBException ex) {
             Logger.getLogger(XmlUtil.class.getName()).log(Level.SEVERE, null, ex);
         }
         return null;
     }
-
-
 }
