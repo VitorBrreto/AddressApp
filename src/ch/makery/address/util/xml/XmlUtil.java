@@ -18,16 +18,12 @@ public class XmlUtil <T> implements XmlHandler<T> {
     
     private final JAXBContext context;
     
-    private XmlUtil (Class<T> classToBeBound) throws UnboundableClassException {
+    public XmlUtil (Class<T> classToBeBound) throws UnboundableClassException {
         try {
             context = JAXBContext.newInstance(classToBeBound);
         } catch (JAXBException ex) {
             throw new UnboundableClassException();
         }
-    }
-    
-    public static XmlUtil getInstance(Class classToBeBound) throws UnboundableClassException {
-        return new XmlUtil<>(classToBeBound);
     }
     
     private Unmarshaller getUnmarsheller() throws UnmarshallerCreationException {
@@ -58,27 +54,24 @@ public class XmlUtil <T> implements XmlHandler<T> {
     }
 
     @Override
-    public void marshall(T wrapper, File outputFile) {
+    public void marshall(T wrapper, File outputFile) throws MarshalException {
         try {
             Marshaller marshaller = getMarshaller();
             marshaller.marshal(wrapper, outputFile);  
         } catch (MarshallerCreationException | JAXBException ex) {
-            Logger.getLogger(XmlUtil.class.getName()).log(Level.SEVERE, null, ex);
+            throw new MarshalException(ex.getLocalizedMessage());
         }
         
     }
 
     @Override
-    public T unmarshall(File inputFile) {
+    public T unmarshall(File inputFile) throws UnmarshalException{
         try {
             Unmarshaller unmarshaller = getUnmarsheller();
             T wrapper = (T) unmarshaller.unmarshal(inputFile);
             return wrapper;
-        } catch (UnmarshallerCreationException ex) {
-            Logger.getLogger(XmlUtil.class.getName()).log(Level.SEVERE, null, ex);
-        } catch (JAXBException ex) {
-            Logger.getLogger(XmlUtil.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (UnmarshallerCreationException | JAXBException ex) {
+            throw new UnmarshalException(ex.getLocalizedMessage());
         }
-        return null;
     }
 }

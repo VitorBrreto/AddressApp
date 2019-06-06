@@ -8,8 +8,8 @@ import java.io.File;
  * @param <T>
  */
 public interface XmlHandler<T> {
-    public void marshall(T wrapper, File outputFile);
+    public void marshall(T wrapper, File outputFile) throws MarshalException;
     
-    public T unmarshall(File inputFile);
+    public T unmarshall(File inputFile) throws UnmarshalException;
     
 }

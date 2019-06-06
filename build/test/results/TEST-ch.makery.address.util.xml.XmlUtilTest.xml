@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<testsuite errors="0" failures="1" hostname="LAPTOP-862SJ3TN" name="ch.makery.address.util.xml.XmlUtilTest" skipped="0" tests="4" time="208.08" timestamp="2019-06-03T12:58:42">
+<testsuite errors="1" failures="0" hostname="LAPTOP-862SJ3TN" name="ch.makery.address.util.xml.XmlUtilTest" skipped="0" tests="4" time="0.237" timestamp="2019-06-06T11:44:25">
   <properties>
     <property name="netbeans.autoupdate.country" value="BR" />
     <property name="javafx.binarycss" value="false" />
@@ -9,7 +9,6 @@
     <property name="manifest.custom.codebase" value="*" />
     <property name="javafx.signing.blob" value="false" />
     <property name="javac.test.sourcepath" value="C:\Users\pvito\Documents\GitHub\AddressApp\build\empty" />
-    <property name="javac.includes" value="ch/makery/address/util/xml/XmlUtilTest.java" />
     <property name="ant.core.lib" value="C:\Program Files\netbeans\extide\ant\lib\ant.jar" />
     <property name="javadoc.windowtitle" value="" />
     <property name="javafx.preloader.enabled" value="false" />
@@ -35,7 +34,6 @@
     <property name="libs.hamcrest.classpath" value="C:\Program Files\netbeans\platform\modules\ext\hamcrest-core-1.3.jar" />
     <property name="libs.javac-api.javadoc" value="" />
     <property name="os.name" value="Windows 10" />
-    <property name="test.class" value="ch.makery.address.util.xml.XmlUtilTest" />
     <property name="jdk.gtk.version" value="2.2" />
     <property name="ap.proc.none.internal" value="" />
     <property name="libs.JWSAntTasks.maven-pom" value="" />
@@ -48,7 +46,7 @@
     <property name="libs.eclipselink.src" value="" />
     <property name="user.name" value="pvito" />
     <property name="copylibs.rebase" value="true" />
-    <property name="sun.java.command" value="org.apache.tools.ant.taskdefs.optional.junit.JUnitTestRunner ch.makery.address.util.xml.XmlUtilTest skipNonTests=false filtertrace=true haltOnError=false haltOnFailure=false showoutput=true outputtoformatters=true logfailedtests=true threadid=0 logtestlistenerevents=true formatter=org.apache.tools.ant.taskdefs.optional.junit.BriefJUnitResultFormatter formatter=org.apache.tools.ant.taskdefs.optional.junit.XMLJUnitResultFormatter,C:\Users\pvito\Documents\GitHub\AddressApp\build\test\results\TEST-ch.makery.address.util.xml.XmlUtilTest.xml crashfile=C:\Users\pvito\Documents\GitHub\AddressApp\build\junitvmwatcher10088596853676893176.properties propsfile=C:\Users\pvito\Documents\GitHub\AddressApp\build\junit4954487445946997698.properties" />
+    <property name="sun.java.command" value="org.apache.tools.ant.taskdefs.optional.junit.JUnitTestRunner ch.makery.address.util.xml.XmlUtilTest skipNonTests=false filtertrace=true haltOnError=false haltOnFailure=false showoutput=true outputtoformatters=true logfailedtests=true threadid=0 logtestlistenerevents=true formatter=org.apache.tools.ant.taskdefs.optional.junit.BriefJUnitResultFormatter formatter=org.apache.tools.ant.taskdefs.optional.junit.XMLJUnitResultFormatter,C:\Users\pvito\Documents\GitHub\AddressApp\build\test\results\TEST-ch.makery.address.util.xml.XmlUtilTest.xml crashfile=C:\Users\pvito\Documents\GitHub\AddressApp\build\junitvmwatcher12655346902432327116.properties propsfile=C:\Users\pvito\Documents\GitHub\AddressApp\build\junit11762559979976017964.properties" />
     <property name="build.classes.dir" value="build/classes" />
     <property name="build.sysclasspath" value="ignore" />
     <property name="manifest.encoding" value="UTF-8" />
@@ -76,7 +74,6 @@
     <property name="java.endorsed.dirs" value="C:\Program Files\Java\jdk1.8.0_111\jre\lib\endorsed" />
     <property name="libs.groovy-all.src" value="" />
     <property name="libs.junit_5.src" value="C:\Program Files\netbeans\platform\docs\junit-jupiter-api-5.3.1-sources.jar;C:\Program Files\netbeans\platform\docs\junit-jupiter-params-5.3.1-sources.jar;C:\Program Files\netbeans\platform\docs\junit-jupiter-engine-5.3.1-sources.jar" />
-    <property name="test.includes" value="ch/makery/address/util/xml/XmlUtilTest.java" />
     <property name="netbeans.dynamic.classpath" value="C:\Program Files\netbeans\platform\core\asm-all-5.0.1.jar;C:\Program Files\netbeans\platform\core\core-base.jar;C:\Program Files\netbeans\platform\core\core.jar;C:\Program Files\netbeans\platform\core\org-netbeans-libs-asm.jar;C:\Program Files\netbeans\platform\core\org-openide-filesystems-compat8.jar;C:\Program Files\netbeans\platform\core\org-openide-filesystems.jar;C:\Program Files\netbeans\nb\core\org-netbeans-upgrader.jar;C:\Program Files\netbeans\nb\core\locale\core_nb.jar" />
     <property name="jnlp.enabled" value="false" />
     <property name="java.vm.specification.version" value="1.8" />
@@ -92,7 +89,6 @@
     <property name="javac.debug" value="true" />
     <property name="javadoc.splitindex" value="true" />
     <property name="file.separator" value="\" />
-    <property name="javac.includesfile.binary" value="C:\Users\pvito\Documents\GitHub\AddressApp\null290560439" />
     <property name="libs.junit_4.maven-pom" value="" />
     <property name="mkdist.disabled" value="false" />
     <property name="javac.test.processorpath" value="C:\Program Files\Java\jdk1.8.0_111/jre/lib/javaws.jar:C:\Program Files\Java\jdk1.8.0_111/jre/lib/deploy.jar:C:\Program Files\Java\jdk1.8.0_111/jre/lib/plugin.jar:build/classes:C:\Program Files\netbeans\platform\modules\ext\junit-4.12.jar:C:\Program Files\netbeans\platform\modules\ext\hamcrest-core-1.3.jar" />
@@ -103,8 +99,6 @@
     <property name="libs.eclipselinkmodelgen.classpath" value="C:\Program Files\netbeans\java\modules\ext\eclipselink\org.eclipse.persistence.jpa.modelgen.processor-2.5.2.jar" />
     <property name="sun.java.launcher" value="SUN_STANDARD" />
     <property name="libs.jaxb.javadoc" value="C:\Program Files\netbeans\ide\docs\jaxb-api-2.2.5-javadoc.jar" />
-    <property name="org.openide.awt.SwingBrowserImpl.do-not-block-awt" value="false" />
-    <property name="javac.includes.binary" value="C:\Users\pvito\Documents\GitHub\AddressApp\build\test\classes\ch\makery\address\util\xml\XmlUtilTest.class" />
     <property name="ant.home" value="C:\Program Files\netbeans\extide\ant" />
     <property name="libs.junit_4.src" value="C:\Program Files\netbeans\platform\docs\junit-4.12-sources.jar" />
     <property name="javafx.run.height" value="600" />
@@ -138,13 +132,12 @@
     <property name="manifest.available" value="true" />
     <property name="libs.spring-framework300.maven-pom" value="" />
     <property name="run.test.classpath" value="C:\Program Files\Java\jdk1.8.0_111/jre/lib/javaws.jar:C:\Program Files\Java\jdk1.8.0_111/jre/lib/deploy.jar:C:\Program Files\Java\jdk1.8.0_111/jre/lib/plugin.jar:build/classes:C:\Program Files\netbeans\platform\modules\ext\junit-4.12.jar:C:\Program Files\netbeans\platform\modules\ext\hamcrest-core-1.3.jar:build/test/classes" />
-    <property name="ant.project.invoked-targets" value="debug-test" />
+    <property name="ant.project.invoked-targets" value="test" />
     <property name="test.binaryexcludes" value="" />
     <property name="sun.java2d.dpiaware" value="true" />
     <property name="https.nonProxyHosts" value="localhost|127.0.0.1|LAPTOP-862SJ3TN" />
     <property name="libs.PostgreSQLDriver.maven-pom" value="" />
     <property name="java.class.version" value="52.0" />
-    <property name="jpda.address" value="javadebug" />
     <property name="libs.eclipselink.javadoc" value="" />
     <property name="platforms.JDK_1.8.compiler" value="modern" />
     <property name="user.properties.file" value="C:\Users\pvito\AppData\Roaming\NetBeans\10.0\build.properties" />
@@ -289,13 +282,14 @@
     <property name="sun.boot.class.path" value="C:\Program Files\Java\jdk1.8.0_111\jre\lib\resources.jar;C:\Program Files\Java\jdk1.8.0_111\jre\lib\rt.jar;C:\Program Files\Java\jdk1.8.0_111\jre\lib\sunrsasign.jar;C:\Program Files\Java\jdk1.8.0_111\jre\lib\jsse.jar;C:\Program Files\Java\jdk1.8.0_111\jre\lib\jce.jar;C:\Program Files\Java\jdk1.8.0_111\jre\lib\charsets.jar;C:\Program Files\Java\jdk1.8.0_111\jre\lib\jfr.jar;C:\Program Files\Java\jdk1.8.0_111\jre\classes" />
     <property name="javac.target" value="1.8" />
     <property name="built-jar.properties" value="C:\Users\pvito\Documents\GitHub\AddressApp\build\built-jar.properties" />
-    <property name="build.test.classes.dir" value="build/test/classes" />
     <property name="javafx.deploy.permissionselevated" value="false" />
+    <property name="build.test.classes.dir" value="build/test/classes" />
     <property name="src.dir" value="src" />
     <property name="javac.test.compilerargs" value="" />
-    <property name="sun.awt.keepWorkingSetOnMinimize" value="true" />
     <property name="annotation.processing.enabled" value="true" />
+    <property name="sun.awt.keepWorkingSetOnMinimize" value="true" />
     <property name="libs.jpa20-persistence.src" value="" />
+    <property name="ignore.failing.tests" value="true" />
     <property name="javafx.enable.concurrent.external.runs" value="false" />
     <property name="javafx.deploy.embedJNLP" value="true" />
     <property name="dist.dir" value="dist" />
@@ -338,7 +332,7 @@
     <property name="jlink.launcher.name" value="AddressApp" />
     <property name="javafx.deploy.allowoffline" value="true" />
     <property name="libs.JAXB-ENDORSED.classpath" value="C:\Program Files\netbeans\ide\modules\ext\jaxb\api\jaxb-api.jar" />
-    <property name="nb.internal.action.name" value="debug.test.single" />
+    <property name="nb.internal.action.name" value="test" />
     <property name="run.test.modulepath" value="" />
     <property name="libs.eclipselink.classpath" value="C:\Program Files\netbeans\java\modules\ext\eclipselink\org.eclipse.persistence.core-2.5.2.jar;C:\Program Files\netbeans\java\modules\ext\eclipselink\org.eclipse.persistence.asm-2.5.2.jar;C:\Program Files\netbeans\java\modules\ext\eclipselink\org.eclipse.persistence.antlr-2.5.2.jar;C:\Program Files\netbeans\java\modules\ext\eclipselink\org.eclipse.persistence.jpa-2.5.2.jar;C:\Program Files\netbeans\java\modules\ext\eclipselink\org.eclipse.persistence.jpa.jpql-2.5.2.jar;C:\Program Files\netbeans\java\modules\ext\eclipselink\javax.persistence-2.1.0.jar" />
     <property name="java.awt.graphicsenv" value="sun.awt.Win32GraphicsEnvironment" />
@@ -366,16 +360,18 @@
     <property name="awt.toolkit" value="sun.awt.windows.WToolkit" />
     <property name="javafx.deploy.installpermanently" value="false" />
   </properties>
-  <testcase classname="ch.makery.address.util.xml.XmlUtilTest" name="shoudReturnANotNullInstanceOfXmlUtilWhenPersonListWrapperIsPassed" time="0.007" />
-  <testcase classname="ch.makery.address.util.xml.XmlUtilTest" name="shoudReturnANotNullInstanceOfXmlUtilWhenDateUtilIsPassed" time="0.004" />
-  <testcase classname="ch.makery.address.util.xml.XmlUtilTest" name="shouldThrowExceptionWhentNonFormattedClassIsPassed" time="207.803">
-    <failure message="Expected exception: ch.makery.address.util.xml.UnboundableClassException" type="junit.framework.AssertionFailedError">junit.framework.AssertionFailedError: Expected exception: ch.makery.address.util.xml.UnboundableClassException
-</failure>
+  <testcase classname="ch.makery.address.util.xml.XmlUtilTest" name="shoudReturnANotNullInstanceOfXmlUtilWhenPersonListWrapperIsPassed" time="0.116" />
+  <testcase classname="ch.makery.address.util.xml.XmlUtilTest" name="shoudReturnANotNullInstanceOfXmlUtilWhenDateUtilIsPassed" time="0.006" />
+  <testcase classname="ch.makery.address.util.xml.XmlUtilTest" name="shoudThrowExceptionIfNullIsPassed" time="0.014">
+    <error message="Unexpected exception, expected&lt;javax.xml.bind.JAXBException&gt; but was&lt;java.lang.NullPointerException&gt;" type="java.lang.Exception">java.lang.Exception: Unexpected exception, expected&lt;javax.xml.bind.JAXBException&gt; but was&lt;java.lang.NullPointerException&gt;
+Caused by: java.lang.NullPointerException
+	at ch.makery.address.util.xml.XmlUtilTest.shoudThrowExceptionIfNullIsPassed(XmlUtilTest.java:67)
+</error>
   </testcase>
-  <testcase classname="ch.makery.address.util.xml.XmlUtilTest" name="shouldThrowExceptionWhentNullIsPassed" time="0.0" />
+  <testcase classname="ch.makery.address.util.xml.XmlUtilTest" name="shouldThrowExceptionWhentNullIsPassed" time="0.004" />
   <system-out><![CDATA[getInstance
 getInstance
-getInstance
+marshall
 getInstance
 ]]></system-out>
   <system-err><![CDATA[]]></system-err>

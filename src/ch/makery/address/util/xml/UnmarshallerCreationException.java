@@ -9,7 +9,7 @@ package ch.makery.address.util.xml;
  *
  * @author Paulo Vitor
  */
-public class UnmarshallerCreationException extends Exception {
+public class UnmarshallerCreationException extends UnmarshalException {
 
     /**
      * Creates a new instance of <code>UnmarshallerCreationException</code>

@@ -9,14 +9,11 @@ package ch.makery.address.util.xml;
  *
  * @author Paulo Vitor
  */
-class MarshallerCreationException extends MarshalException {
-
-    MarshallerCreationException(String message) {
+class UnmarshalException extends Exception {
+    UnmarshalException(String message) {
         super(message);
     }
 
-    public MarshallerCreationException() {
+    public UnmarshalException() {
     }
-    
-    
 }
