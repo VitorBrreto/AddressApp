@@ -9,7 +9,7 @@ package ch.makery.address.util.xml;
  *
  * @author Paulo Vitor
  */
-class UnboundableClassException extends Exception {
+class UnboundableClassException extends RuntimeException {
 
     public UnboundableClassException(String message) {
         super(message);

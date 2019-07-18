@@ -9,7 +9,7 @@ package ch.makery.address.util.xml;
  *
  * @author Paulo Vitor
  */
-class UnmarshalException extends Exception {
+public class UnmarshalException extends Exception {
     UnmarshalException(String message) {
         super(message);
     }

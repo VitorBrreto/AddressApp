@@ -2,6 +2,8 @@ package ch.makery.address;
 
 import ch.makery.address.model.Person;
 import ch.makery.address.model.PersonListWrapper;
+import ch.makery.address.util.xml.XmlHandler;
+import ch.makery.address.util.xml.XmlUtil;
 import java.io.File;
 import java.util.List;
 import java.util.prefs.Preferences;
@@ -21,6 +23,11 @@ public class PersonListFileHandler implements FileHandler<Person> {
 
     private final Preferences preferences;
     private final Stage primaryStage;
+    private final static XmlHandler<PersonListWrapper> personListXmlUtil;
+    
+    static {
+        personListXmlUtil = new XmlUtil<>(PersonListWrapper.class);
+    }
 
     public PersonListFileHandler(Preferences preferences, Stage primaryStage) {
         this.preferences = preferences;
