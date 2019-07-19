@@ -1,8 +1,8 @@
 package ch.makery.address.view;
 
-import ch.makery.address.AlertFactory;
+import ch.makery.address.util.AlertFactory;
 import ch.makery.address.MainApp;
-import ch.makery.address.FileHandler;
+import ch.makery.address.util.FileHandler;
 import ch.makery.address.model.Person;
 import java.io.File;
 import javafx.collections.ObservableList;
@@ -10,7 +10,7 @@ import javafx.fxml.FXML;
 import javafx.scene.control.Alert.AlertType;
 import javafx.stage.FileChooser;
 
-public class RootLayoutController {
+public class RootLayoutController implements Controller{
     private MainApp mainApp;
     private FileHandler<Person> fileHandler;
     private ObservableList<Person> personData;

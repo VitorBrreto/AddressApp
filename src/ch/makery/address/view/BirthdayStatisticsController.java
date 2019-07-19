@@ -11,7 +11,7 @@ import javafx.scene.chart.BarChart;
 import javafx.scene.chart.CategoryAxis;
 import javafx.scene.chart.XYChart;
 
-public class BirthdayStatisticsController{
+public class BirthdayStatisticsController implements Controller{
     
     @FXML
     private BarChart<String, Integer> barChart;
@@ -33,20 +33,31 @@ public class BirthdayStatisticsController{
     }
     
     public void setPersonData(List<Person> persons) {
+        int[] monthCounter = getBarChartData(persons);
+        
+        XYChart.Series<String, Integer> series = makeChartSeries(monthNames, monthCounter);
+        
+        barChart.getData().add(series);
+    }
+
+    private XYChart.Series<String, Integer> makeChartSeries(List<String> monthNames, int[] monthCounter) {
+        XYChart.Series<String, Integer> series = new XYChart.Series<>();
+        for(int i = 0; i < monthCounter.length; i++){
+            final XYChart.Data<String, Integer> data = 
+                    new XYChart.Data<>(monthNames.get(i), monthCounter[i]);
+            series.getData()
+                    .add(data);
+        }
+        return series;
+    }
+
+    private int[] getBarChartData(List<Person> persons) {
         int[] monthCounter = new int[12];
         persons.stream().forEach((Person person) -> {
             int month = person.getBirthday().getMonthValue()-1;
             monthCounter[month]++;
         });
-        
-        XYChart.Series<String, Integer> series = new XYChart.Series<>();
-        
-        for(int i = 0; i < monthCounter.length; i++){
-            series.getData()
-                    .add(new XYChart.Data<>(monthNames.get(i), monthCounter[i]));
-        }
-        
-        barChart.getData().add(series);
+        return monthCounter;
     }
     
     

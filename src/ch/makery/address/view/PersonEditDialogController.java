@@ -1,6 +1,6 @@
 package ch.makery.address.view;
 
-import ch.makery.address.AlertFactory;
+import ch.makery.address.util.AlertFactory;
 import javafx.fxml.FXML;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
@@ -10,7 +10,7 @@ import javafx.scene.control.Alert.AlertType;
 import ch.makery.address.model.Person;
 import ch.makery.address.util.DateUtil;
 
-public class PersonEditDialogController {
+public class PersonEditDialogController implements Controller{
 
     @FXML
     private TextField firstNameField;
@@ -27,10 +27,11 @@ public class PersonEditDialogController {
 
     private Stage dialogStage;
     private Person person;
-    private boolean okClicked = false;
+    private boolean okClicked;
 
     @FXML
     private void initialize() {
+        okClicked = false;
     }
     
     public void setDialogStage(Stage dialogStage) {
@@ -91,38 +92,34 @@ public class PersonEditDialogController {
     private String constructErrorMessage() {
         String errorMessage = "";
         
-        if (isFieldValid(firstNameField)) {
+        if (!isFieldValid(firstNameField)) {
             errorMessage += "Nome inválido!\n";
         }
         
-        if (isFieldValid(lastNameField)) {
+        if (!isFieldValid(lastNameField)) {
             errorMessage += "Sobrenome inválido!\n";
         }
         
-        if (isFieldValid(streetField)) {
+        if (!isFieldValid(streetField)) {
             errorMessage += "Rua inválida!\n";
         }
         
-        if (isFieldValid(postalCodeField)) {
+        if (!isFieldValid(postalCodeField)) {
             errorMessage += "Código Postal inválido!\n";
         } else {
-            try {
-                Integer.parseInt(postalCodeField.getText());
-            } catch (NumberFormatException e) {
-                errorMessage += "Código Postal inválido (deve ser um inteiro)!\n";
-            }
+            final String postalCodeTypeError = "Código Postal inválido (deve ser um inteiro)!\n";
+            errorMessage += constructErrorMessageIfFieldIsInvalid(postalCodeTypeError);
         }
         
-        if (isFieldValid(cityField)) {
+        if (!isFieldValid(cityField)) {
             errorMessage += "Cidade inválida!\n";
         }
         
-        if (isFieldValid(birthdayField)) {
+        if (!isFieldValid(birthdayField)) {
             errorMessage += "Aniversário inválido!\n";
         } else {
-            if (!DateUtil.validDate(birthdayField.getText())) {
-                errorMessage += "Aniversário inválido. Use o formato dd.mm.yyyy!\n";
-            }
+            final String birthdayFieldInvalidDateMessage = "Aniversário inválido. Use o formato dd.mm.yyyy!\n";
+            errorMessage += handleDateFieldErrorMessageIFDateIsInvalid(birthdayFieldInvalidDateMessage);
         }
         
         return errorMessage;
@@ -130,7 +127,27 @@ public class PersonEditDialogController {
 
     private boolean isFieldValid(TextField field) {
         String text = field.getText();
-        boolean isValid = text == null || field.getText().length() == 0;
-        return isValid;
+        final boolean isFieldNull = (text == null);
+        final boolean isFieldEmpty = (field.getText().length() == 0);
+        boolean isInvalid = isFieldNull || isFieldEmpty;
+        return !isInvalid;
+    }
+
+    private String constructErrorMessageIfFieldIsInvalid(String errorMessageIfInvalid) {
+        String errorMessage = "";
+        try {
+            Integer.parseInt(postalCodeField.getText());
+        } catch (NumberFormatException e) {
+            errorMessage += errorMessageIfInvalid;
+        }
+        return errorMessage;
+    }
+
+    private String handleDateFieldErrorMessageIFDateIsInvalid(String errorMessageIfInvalid) {
+        String errorMessage = "";
+        if (!DateUtil.validDate(birthdayField.getText())) {
+            errorMessage = errorMessageIfInvalid;
+        }
+        return errorMessage;
     }
 }

@@ -1,6 +1,6 @@
 package ch.makery.address.view;
 
-import ch.makery.address.AlertFactory;
+import ch.makery.address.util.AlertFactory;
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
 import javafx.scene.control.TableColumn;
@@ -10,7 +10,7 @@ import ch.makery.address.model.Person;
 import ch.makery.address.util.DateUtil;
 import javafx.scene.control.Alert.AlertType;
 
-public class PersonOverviewController {
+public class PersonOverviewController implements Controller{
     @FXML
     private TableView<Person> personTable;
     @FXML

@@ -1,4 +1,4 @@
-package ch.makery.address;
+package ch.makery.address.util;
 
 import ch.makery.address.model.Person;
 import ch.makery.address.model.PersonListWrapper;

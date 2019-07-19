@@ -1,4 +1,4 @@
-package ch.makery.address;
+package ch.makery.address.util;
 
 import java.io.File;
 import java.util.List;

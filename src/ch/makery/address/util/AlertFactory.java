@@ -1,4 +1,4 @@
-package ch.makery.address;
+package ch.makery.address.util;
 
 import javafx.scene.control.Alert;
 import javafx.scene.control.Alert.AlertType;
