@@ -14,7 +14,7 @@ import javafx.fxml.FXMLLoader;
  *
  * @author Paulo Vitor
  */
-public class LayoutFactory <L extends Pane> {
+public abstract class LayoutFactory <L extends FXMLLoader> {
     private FXMLLoader loader;
     private L pane;
     Controller controller;
